@@ -135,7 +135,6 @@ app.post("/api/polls/reaction/:id", async (req, res) => {
 // Add route for submitting comments
 app.post('/api/polls/:id/comment', async (req, res) => {
     const { text } = req.body;
-    // console.log(req.body);
     try {
         const poll = await Poll.findById(req.params.id);
         if (!poll) return res.status(404).json({ error: 'Poll not found' });
